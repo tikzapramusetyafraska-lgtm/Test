@@ -1,0 +1,21 @@
+{
+  "summary": "Frontend mobile smoke test reached the dashboard and empty state, opened the add-transaction modal, but the core save flow is blocked at the required mobile viewport.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [{"component": "AddTransactionModal", "issue": "At 375x667 the modal sheet extends below the viewport; the 'Simpan transaksi' button is outside the viewport and cannot be tapped. The modal has no internal ScrollView.", "testID": "missing", "priority": "HIGH"}],
+    "integration_issues": [{"flow": "Add transaction", "issue": "Could not complete validation or persistence flow on mobile because save is clipped below the modal viewport.", "affected_testIDs": []}],
+    "design_issues": [],
+    "react_native_issues": []
+  },
+  "test_report_links": ["/app/test_reports/iteration_1.json"],
+  "action_items": ["Wrap the modal sheet content in a keyboard-aware internal ScrollView (or reduce sheet content/spacing) so the save button is reachable at 375x667 and with the keyboard open.", "Add testID attributes to interactive controls for reliable mobile regression testing."],
+  "critical_code_review_comments": ["AddTransactionModal is a long fixed View rather than a scrollable form; this causes a functional mobile viewport failure.", "Interactive Pressables generally lack testID attributes, reducing regression testability."],
+  "updated_files": ["/app/test_reports/iteration_1.json"],
+  "success_rate": {"backend": "not tested (frontend-only request)", "frontend": "33%"},
+  "seed_data_creation": "Cleared browser local/session storage; no seed data created.",
+  "retest_needed": true,
+  "should_call_test_agent_after_fix": true,
+  "context_for_next_testing_agent": "Dashboard loaded and fresh empty state rendered. At 375x667, opening Catat transaksi works, but save is clipped below viewport; desktop/previous run reportedly saved successfully.",
+  "rca_of_issue": "The modal sheet contains all form controls in one non-scrollable View. Its height exceeds the viewport, so the save element is outside the viewport. Root cause is missing internal ScrollView/keyboard-aware scrolling in AddTransactionModal.",
+  "test_credentials": "Not applicable; local-only app with no authentication."
+}

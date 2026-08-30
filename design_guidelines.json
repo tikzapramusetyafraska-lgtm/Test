@@ -1,0 +1,146 @@
+{
+  "app_name": "My duwit gwejh",
+  "personality": "7 Dark-First Utility (with Editorial refinement)",
+  "personality_one_liner": "A sophisticated, zero-login local expense tracker crafted in dark obsidian glass and warm emerald accents for fast IDR money logging.",
+  "color": {
+    "surface": "#121417",
+    "onSurface": "#F4F5F7",
+    "surfaceSecondary": "#1A1D23",
+    "onSurfaceSecondary": "#D0D3DC",
+    "surfaceTertiary": "#232730",
+    "onSurfaceTertiary": "#9FA3B1",
+    "surfaceInverse": "#FFFFFF",
+    "onSurfaceInverse": "#121417",
+    "brand": "#10B981",
+    "brandPrimary": "#10B981",
+    "onBrandPrimary": "#062319",
+    "brandSecondary": "#059669",
+    "onBrandSecondary": "#ECFDF5",
+    "brandTertiary": "#064E3B",
+    "onBrandTertiary": "#D1FAE5",
+    "success": "#34D399",
+    "onSuccess": "#022C22",
+    "warning": "#FBBF24",
+    "onWarning": "#451A03",
+    "error": "#F87171",
+    "onError": "#450A0A",
+    "info": "#60A5FA",
+    "onInfo": "#1E3A8A",
+    "border": "#2E3440",
+    "borderStrong": "#4C566A",
+    "divider": "#1F232B"
+  },
+  "typography": {
+    "displayFontFamily": "Outfit",
+    "textFontFamily": "Plus Jakarta Sans",
+    "scale": {
+      "sm": 12,
+      "base": 14,
+      "lg": 16,
+      "xl": 20,
+      "2xl": 24
+    }
+  },
+  "spacing": {
+    "rule": "Generous touch spacing with compact metric cards and bottom-anchored CTA action buttons.",
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "2xl": 32,
+    "3xl": 48
+  },
+  "radius_tokens": {
+    "sm": 8,
+    "md": 14,
+    "lg": 22,
+    "pill": 999
+  },
+  "shadow_tier": "1",
+  "navigation": "bottom_tabs",
+  "icon_set": "Phosphor",
+  "glassmorphism": {
+    "enabled": true,
+    "do's": [
+      "Use frosted glass cards with 80% opacity surface tint for balance headers",
+      "Apply backdrop blur over scrolling lists for sticky total cards"
+    ],
+    "dont's": [
+      "Never blur body text inputs",
+      "Avoid multi-hue glass overlays"
+    ]
+  },
+  "platform_libraries": {
+    "glass": {
+      "ios": "expo-glass-effect",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "blur": "expo-blur",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler"
+  },
+  "screens": [
+    {
+      "name": "Dashboard",
+      "purpose": "Overview of total balance, monthly income vs expense, quick action triggers, and recent local IDR transactions.",
+      "states": {
+        "loading": "Centered glowing emerald pulse loader with subtle skeleton card blocks",
+        "empty": "Wallet illustration card with 'Belum ada catatan duwit' headline and primary 'Tambah Transaksi' CTA button",
+        "error": "Card with amber warning icon, error description, and 'Coba Lagi' retry button"
+      },
+      "layout": "Vertical scroll with safe area top. Top header with greeting and local storage badge. Frosted glass balance summary card in center. Quick stats row (Pemasukan vs Pengeluaran). Recent transaction header with 'Lihat Semua' and scrollable list with icon categories and IDR formatting."
+    },
+    {
+      "name": "Add Transaction Modal",
+      "purpose": "Fast entry screen to record income or expenses with custom categories, amount in IDR, date, and notes.",
+      "states": {
+        "loading": "Ready instantly for offline local storage write",
+        "empty": "Preset amount 'Rp 0' with active numeric keypad focus",
+        "error": "Inline validation message for missing amount or category"
+      },
+      "layout": "Bottom sheet or full-screen modal with top segmented control (Pemasukan / Pengeluaran). Large amount input formatted in IDR. Category picker grid with icons. Date selector and optional note input. Sticky bottom 'Simpan Transaksi' button."
+    },
+    {
+      "name": "Categories & Budget",
+      "purpose": "Manage custom expense categories with spending limits and icon assignments.",
+      "states": {
+        "loading": "Skeleton list loader",
+        "empty": "Illustration with 'Belum ada kategori kustom' and 'Tambah Kategori' button",
+        "error": "Error banner with retry button"
+      },
+      "layout": "Header with 'Kelola Kategori', grid of default & custom categories with budget allocation progress bars, and floating action button to create new category."
+    },
+    {
+      "name": "Analytics & Reports",
+      "purpose": "Visual reports showing monthly spending trends, income breakdown, and simple category proportion charts.",
+      "states": {
+        "loading": "Animated chart skeleton placeholders",
+        "empty": "No enough transactions yet for monthly analysis",
+        "error": "Failed to load chart data with retry prompt"
+      },
+      "layout": "Top month selector (Januari 2026, Februari 2026). Summary metrics card. Simple visual percentage bars for category expense breakdown. Daily spending line graph representation."
+    },
+    {
+      "name": "Settings / Local Storage",
+      "purpose": "Device storage management, currency settings (IDR locked), export/import backup data as JSON, and app info.",
+      "states": {
+        "loading": "Static storage check",
+        "empty": "N/A",
+        "error": "Backup restore error notification"
+      },
+      "layout": "Grouped list items for Storage Usage (AsyncStorage), Currency (IDR), Export Data (JSON), Import Data, and About 'My duwit gwejh'."
+    }
+  ],
+  "images": {
+    "dashboard_hero": {
+      "url": "https://images.unsplash.com/photo-1532190872407-280735d27e08",
+      "dark": "https://images.unsplash.com/photo-1532190872407-280735d27e08",
+      "alt": "Dark financial abstract aesthetic background"
+    }
+  },
+  "instructions_to_main_agent": "Ensure AsyncStorage is used for all transactions and categories without login requirements. Default currency is IDR (Rp). Ensure all amount displays use Indonesian Rupiah formatting (e.g. Rp 150.000). Maintain the 500 font weight maximum rule and ensure accessibility contrast on all dark surfaces."
+}
