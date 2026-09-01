@@ -1,56 +1,31 @@
-# PRD — My duwit gwejh
+# My duwit gwejh — PRD
 
-## Problem statement
-“Halo bisa bantu aku membuat website atau apk menghitung pengeluaran?”
+## Ringkasan
+Aplikasi pencatat pemasukan & pengeluaran pribadi berbahasa Indonesia (mata uang IDR). Fokus utama: **100% offline, tanpa login, elegan dan gamified**. Berjalan di Expo (Android/iOS) dengan penyimpanan lokal AsyncStorage.
 
-Pengguna membutuhkan aplikasi Android sederhana untuk mencatat pemasukan dan pengeluaran dalam Rupiah, melihat saldo, dan memahami pola pengeluaran tanpa membuat akun.
+## Prinsip Produk
+- Zero-login, semua data disimpan di perangkat.
+- UI dark/emerald "obsidian luxe" dengan wallpaper global yang bisa diganti.
+- Setiap fitur harus tetap fungsional saat tanpa internet.
 
-## Architecture
-- Expo React Native mobile app, Android-first, dengan satu entry screen dan navigasi tab internal.
-- Penyimpanan lokal memakai AsyncStorage melalui utilitas `src/utils/storage`; tidak ada login dan tidak ada ketergantungan API backend untuk alur utama.
-- Data transaksi bertipe `Transaction` berisi jenis, nominal, kategori, catatan, tanggal, dan ID lokal.
-- Styling dark-first obsidian dengan aksen emerald, kartu ringkasan, grafik batang sederhana, dan ikon Expo Vector Icons.
+## Fitur Inti (v1.1)
+1. **Profil Pengguna** — nama & foto (galeri) tersimpan lokal, avatar di dashboard.
+2. **Wallpaper Global** — 6 preset gradient + upload foto dari galeri. Berlaku di semua menu.
+3. **Kategori Lengkap** — 14 kategori pengeluaran + 6 kategori pemasukan.
+4. **Auto-Kategorisasi** — kata kunci di catatan otomatis pilih kategori (contoh: "membership game" → Hiburan & Lifestyle). User bisa override manual.
+5. **Filter Waktu Dinamis** — 7/30/60/90 hari + picker 12 bulan terakhir untuk riwayat & laporan.
+6. **Ekspor PDF & CSV** — via share menu bawaan (expo-print + expo-sharing). Periode: cepat, per bulan, atau rentang tanggal kustom.
+7. **Chart Bar & Donut** — pengeluaran 7 hari terakhir + sebaran kategori pie (react-native-svg).
+8. **Skor Keuangan** — kombinasi rasio pengeluaran/pemasukan + konsistensi mencatat harian. Skala 0-100 dengan label (Sangat Hemat/Hemat/Seimbang/Boros/Sangat Boros).
+9. **Achievements** — 4 pencapaian: konsisten 3 bulan skor 100, legenda hemat 12 bulan, 7 hari beruntun mencatat, 30 transaksi pertama.
+10. **Dukung Pembuat** — halaman apresiasi dengan QRIS Kenean Store + pesan terima kasih.
 
-## User personas
-- Pengguna harian yang ingin cepat mencatat pengeluaran kecil dalam IDR.
-- Pengguna pribadi yang ingin memantau saldo dan membandingkan pemasukan dengan pengeluaran tanpa membagikan data ke server.
+## Arsitektur
+- Frontend: Expo Router (single tab shell), React Native, react-native-svg
+- Storage: AsyncStorage via `@/src/utils/storage`
+- Keys: `my-duwit-gwejh-transactions-v1`, `my-duwit-gwejh-wallpaper-v1`, `my-duwit-gwejh-profile-v1`
 
-## Core requirements (static)
-- Catat pemasukan dan pengeluaran.
-- Kategori pengeluaran.
-- Kategori pemasukan Gaji, Bonus, dan Lainnya.
-- Ringkasan saldo, pemasukan, dan pengeluaran bulan berjalan.
-- Riwayat transaksi dengan filter Semua, Masuk, dan Keluar.
-- Laporan sederhana berdasarkan aktivitas 7 hari dan kategori.
-- Hapus catatan pemasukan maupun pengeluaran dengan konfirmasi.
-- Data tersimpan lokal tanpa login, menggunakan format Rupiah.
-
-## Implemented (2026-08-30)
-- Dashboard dark/elegan dengan saldo total, ringkasan bulan berjalan, CTA tambah transaksi, dan empty state.
-- Modal transaksi scrollable dan keyboard-aware untuk layar kecil; mendukung pemasukan/pengeluaran, nominal IDR, kategori, dan catatan.
-- Menambahkan kategori pemasukan Gaji dan Bonus.
-- Bottom navigation Beranda, Riwayat, Laporan, dan Profil.
-- Persistensi transaksi lokal, filter riwayat, grafik 7 hari, breakdown kategori, dan profil privasi lokal.
-- Menambahkan tombol hapus terlihat di setiap baris transaksi pada dashboard dan riwayat, plus konfirmasi internal lintas platform.
-- Menambahkan test IDs untuk kontrol modal dan navigasi utama.
-
-## Prioritized backlog
-
-### P0 — Remaining
-- Tidak ada item P0 untuk MVP saat ini.
-
-### P1 — Next improvements
-- Tambahkan edit transaksi dari detail catatan.
-- Tambahkan tanggal transaksi yang dapat dipilih pengguna.
-- Tambahkan ekspor dan impor backup JSON lokal.
-- Tambahkan budget per kategori dan indikator batas pengeluaran.
-
-### P2 — Later improvements
-- Pengingat pencatatan transaksi.
-- Tema terang sebagai opsi.
-- Widget ringkasan saldo Android.
-
-## Next tasks
-1. Validasi tombol konfirmasi hapus pada perangkat Android fisik.
-2. Prioritaskan edit transaksi dan pemilihan tanggal.
-3. Tambahkan ekspor/impor agar pengguna dapat memindahkan data dengan aman.
+## Tidak Ada
+- Autentikasi
+- Backend / API eksternal
+- Sinkronisasi cloud

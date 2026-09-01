@@ -10,9 +10,13 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.emergent.costcounter.y5mtiw"
+      "bundleIdentifier": "com.emergent.costcounter.y5mtiw",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Pilih wallpaper & foto profil dari galeri"
+      }
     },
     "android": {
+      "permissions": ["READ_MEDIA_IMAGES"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#000000"

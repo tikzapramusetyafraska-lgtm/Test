@@ -1,38 +1,38 @@
 {
-  "app_name": "My duwit gwejh",
-  "personality": "7 Dark-First Utility (with Editorial refinement)",
-  "personality_one_liner": "A sophisticated, zero-login local expense tracker crafted in dark obsidian glass and warm emerald accents for fast IDR money logging.",
+  "app_name": "Keluar Masuk Duwit",
+  "personality": "6 Glass / Luxe DARK (Custom Emerald & Obsidian Luxe Theme)",
+  "personality_one_liner": "An offline, cinematic personal finance sanctuary styled in obsidian and emerald, designed for mindful tracking, deep analytics, and complete local privacy.",
   "color": {
-    "surface": "#121417",
-    "onSurface": "#F4F5F7",
-    "surfaceSecondary": "#1A1D23",
-    "onSurfaceSecondary": "#D0D3DC",
-    "surfaceTertiary": "#232730",
-    "onSurfaceTertiary": "#9FA3B1",
-    "surfaceInverse": "#FFFFFF",
-    "onSurfaceInverse": "#121417",
-    "brand": "#10B981",
-    "brandPrimary": "#10B981",
-    "onBrandPrimary": "#062319",
-    "brandSecondary": "#059669",
-    "onBrandSecondary": "#ECFDF5",
-    "brandTertiary": "#064E3B",
-    "onBrandTertiary": "#D1FAE5",
-    "success": "#34D399",
-    "onSuccess": "#022C22",
-    "warning": "#FBBF24",
-    "onWarning": "#451A03",
-    "error": "#F87171",
-    "onError": "#450A0A",
-    "info": "#60A5FA",
-    "onInfo": "#1E3A8A",
-    "border": "#2E3440",
-    "borderStrong": "#4C566A",
-    "divider": "#1F232B"
+    "surface": "#121614",
+    "onSurface": "#F0F4F1",
+    "surfaceSecondary": "#1A201D",
+    "onSurfaceSecondary": "#D0DCD5",
+    "surfaceTertiary": "#232C27",
+    "onSurfaceTertiary": "#9EB3A6",
+    "surfaceInverse": "#F0F4F1",
+    "onSurfaceInverse": "#121614",
+    "brand": "#00C853",
+    "brandPrimary": "#00E676",
+    "onBrandPrimary": "#0B1410",
+    "brandSecondary": "#00A843",
+    "onBrandSecondary": "#F0F4F1",
+    "brandTertiary": "#163824",
+    "onBrandTertiary": "#A7F3D0",
+    "success": "#00E676",
+    "onSuccess": "#0B1410",
+    "warning": "#FFB300",
+    "onWarning": "#261A00",
+    "error": "#FF5252",
+    "onError": "#380B0B",
+    "info": "#00B0FF",
+    "onInfo": "#0B1A26",
+    "border": "#232C27",
+    "borderStrong": "#00C853",
+    "divider": "#1A201D"
   },
   "typography": {
-    "displayFontFamily": "Outfit",
-    "textFontFamily": "Plus Jakarta Sans",
+    "displayFontFamily": "Fraunces",
+    "textFontFamily": "Switzer",
     "scale": {
       "sm": 12,
       "base": 14,
@@ -42,7 +42,7 @@
     }
   },
   "spacing": {
-    "rule": "Generous touch spacing with compact metric cards and bottom-anchored CTA action buttons.",
+    "rule": "Generous obsidian padding with glassmorphic cards and clean layout hierarchy.",
     "xs": 4,
     "sm": 8,
     "md": 12,
@@ -52,23 +52,23 @@
     "3xl": 48
   },
   "radius_tokens": {
-    "sm": 8,
-    "md": 14,
-    "lg": 22,
+    "sm": 6,
+    "md": 12,
+    "lg": 20,
     "pill": 999
   },
   "shadow_tier": "1",
   "navigation": "bottom_tabs",
-  "icon_set": "Phosphor",
+  "icon_set": "MaterialCommunityIcons",
   "glassmorphism": {
-    "enabled": true,
+    "enabled": "true",
     "do's": [
-      "Use frosted glass cards with 80% opacity surface tint for balance headers",
-      "Apply backdrop blur over scrolling lists for sticky total cards"
+      "Use translucent glass cards over obsidian background with subtle emerald glow",
+      "Apply glass blur to bottom tab bar and sticky headers"
     ],
     "dont's": [
-      "Never blur body text inputs",
-      "Avoid multi-hue glass overlays"
+      "Avoid blur on form text inputs",
+      "Do not use glass without solid dark tint fallback"
     ]
   },
   "platform_libraries": {
@@ -86,61 +86,65 @@
   "screens": [
     {
       "name": "Dashboard",
-      "purpose": "Overview of total balance, monthly income vs expense, quick action triggers, and recent local IDR transactions.",
+      "purpose": "Overview of total balance, recent transactions with keyword auto-classification, global wallpaper background, and quick stats.",
       "states": {
-        "loading": "Centered glowing emerald pulse loader with subtle skeleton card blocks",
-        "empty": "Wallet illustration card with 'Belum ada catatan duwit' headline and primary 'Tambah Transaksi' CTA button",
-        "error": "Card with amber warning icon, error description, and 'Coba Lagi' retry button"
+        "loading": "Centered glowing emerald spinner over obsidian",
+        "empty": "Glass card with illustration, prompt to record first transaction",
+        "error": "Banner with readable offline message and retry action"
       },
-      "layout": "Vertical scroll with safe area top. Top header with greeting and local storage badge. Frosted glass balance summary card in center. Quick stats row (Pemasukan vs Pengeluaran). Recent transaction header with 'Lihat Semua' and scrollable list with icon categories and IDR formatting."
+      "layout": "Global wallpaper background with dark glass overlay. Top custom greeting + profile avatar tappable to profile settings. Main balance card with emerald accent, quick action pills, 7/30/60/90 day activity toggle, and recent transactions feed with auto-categorized badges."
     },
     {
-      "name": "Add Transaction Modal",
-      "purpose": "Fast entry screen to record income or expenses with custom categories, amount in IDR, date, and notes.",
+      "name": "Transactions & Analytics",
+      "purpose": "Detailed income/expense logs with 7/30/60/90 day toggles, 6/12 month historical review, PDF/Excel export, and bar/pie category breakdowns.",
       "states": {
-        "loading": "Ready instantly for offline local storage write",
-        "empty": "Preset amount 'Rp 0' with active numeric keypad focus",
-        "error": "Inline validation message for missing amount or category"
+        "loading": "Skeleton card loader in obsidian",
+        "empty": "No transactions in this period state with add button",
+        "error": "Failed to read local AsyncStorage data error state"
       },
-      "layout": "Bottom sheet or full-screen modal with top segmented control (Pemasukan / Pengeluaran). Large amount input formatted in IDR. Category picker grid with icons. Date selector and optional note input. Sticky bottom 'Simpan Transaksi' button."
+      "layout": "Tabbed analytics view: Bar and Pie charts for category percentage breakdowns (Gaji, Makanan, Transportasi, etc.), range filter pills (7d, 30d, 60d, 90d, 6m, 12m), and export actions for PDF and Excel."
     },
     {
-      "name": "Categories & Budget",
-      "purpose": "Manage custom expense categories with spending limits and icon assignments.",
+      "name": "Financial Score & Achievements",
+      "purpose": "Financial health percentage meter (boros or hemat indicator) and habit achievements like 100% score target over 3 or 12 months.",
       "states": {
-        "loading": "Skeleton list loader",
-        "empty": "Illustration with 'Belum ada kategori kustom' and 'Tambah Kategori' button",
-        "error": "Error banner with retry button"
+        "loading": "Loading circular score gauge",
+        "empty": "No financial history yet for score calculation",
+        "error": "Error evaluating score algorithm"
       },
-      "layout": "Header with 'Kelola Kategori', grid of default & custom categories with budget allocation progress bars, and floating action button to create new category."
+      "layout": "Circular gauge representing financial health percentage with badges (Hemat / Boros), followed by gamified achievement cards for savings consistency and long-term milestones."
     },
     {
-      "name": "Analytics & Reports",
-      "purpose": "Visual reports showing monthly spending trends, income breakdown, and simple category proportion charts.",
+      "name": "Profile & Settings",
+      "purpose": "Customize name, avatar, gallery photo, global wallpaper selection, and app preferences.",
       "states": {
-        "loading": "Animated chart skeleton placeholders",
-        "empty": "No enough transactions yet for monthly analysis",
-        "error": "Failed to load chart data with retry prompt"
+        "loading": "Loading user preferences",
+        "empty": "Default profile state",
+        "error": "Failed to save profile changes"
       },
-      "layout": "Top month selector (Januari 2026, Februari 2026). Summary metrics card. Simple visual percentage bars for category expense breakdown. Daily spending line graph representation."
+      "layout": "Scrollable form with editable display name, avatar selector (preset icons, gallery upload), wallpaper picker for global background, and local data export/reset options."
     },
     {
-      "name": "Settings / Local Storage",
-      "purpose": "Device storage management, currency settings (IDR locked), export/import backup data as JSON, and app info.",
+      "name": "Dukung Pembuat (Support Creator)",
+      "purpose": "Dedicated donation page for creator support with offline QR code placeholder awaiting user asset.",
       "states": {
-        "loading": "Static storage check",
-        "empty": "N/A",
-        "error": "Backup restore error notification"
+        "loading": "Loading donation module",
+        "empty": "QR code placeholder awaiting user asset",
+        "error": "Unable to load offline QR placeholder"
       },
-      "layout": "Grouped list items for Storage Usage (AsyncStorage), Currency (IDR), Export Data (JSON), Import Data, and About 'My duwit gwejh'."
+      "layout": "Centered luxury glass card featuring appreciation message, offline QR code container with instructions to replace with user QR file, and copy wallet / support info."
     }
   ],
   "images": {
-    "dashboard_hero": {
-      "url": "https://images.unsplash.com/photo-1532190872407-280735d27e08",
-      "dark": "https://images.unsplash.com/photo-1532190872407-280735d27e08",
-      "alt": "Dark financial abstract aesthetic background"
+    "wallpaper_default": {
+      "url": "https://images.unsplash.com/photo-1710678832243-cbfb55a0b806?auto=format&fit=crop&q=85&w=1200",
+      "dark": "https://images.unsplash.com/photo-1710678832243-cbfb55a0b806?auto=format&fit=crop&q=85&w=1200",
+      "alt": "Dark obsidian abstract green wallpaper background"
+    },
+    "avatar_default": {
+      "url": "https://images.unsplash.com/photo-1634147536595-a7efd8dcb57b?auto=format&fit=crop&q=85&w=400",
+      "alt": "Default emerald profile portrait avatar"
     }
   },
-  "instructions_to_main_agent": "Ensure AsyncStorage is used for all transactions and categories without login requirements. Default currency is IDR (Rp). Ensure all amount displays use Indonesian Rupiah formatting (e.g. Rp 150.000). Maintain the 500 font weight maximum rule and ensure accessibility contrast on all dark surfaces."
+  "instructions_to_main_agent": "Ensure 100% offline local persistence via AsyncStorage. Implement keyword auto-classification for expense categories (e.g. membership game -> Hiburan & Lifestyle) with manual override. Provide PDF and Excel export triggers. Support 7/30/60/90 day activity toggles and 6/12 month historical review. Implement global wallpaper backgrounds on all screens with obsidian/emerald glass styling. Add financial score meter (Hemat vs Boros) and gamified achievements. Add dedicated Dukung Pembuat donation page with offline QR placeholder. No blue/purple banned colors allowed; stick strictly to obsidian and emerald palette."
 }
